@@ -1,0 +1,18 @@
+---
+- name: deploiement de l'application 
+  hosts: servers
+  become: yes
+  tasks:
+          - name: copy artifacts .war
+            copy:
+                    src: ./target/account-1.0-SNAPSHOT.war
+                    dest: /opt/tomcat/webapps
+            notify: restart_tomcat
+
+  handlers:
+           - name: restart_tomcat
+             service:
+                     name: tomcat
+                     state: restarted
+
+...
