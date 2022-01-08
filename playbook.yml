@@ -5,7 +5,7 @@
   tasks:
           - name: copy artifacts .war
             copy:
-                    src: ./target/account-1.0-SNAPSHOT.war
+                    src: ./target/testing.war
                     dest: /opt/tomcat/webapps
             notify: restart_tomcat
 
