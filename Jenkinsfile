@@ -34,7 +34,7 @@ pipeline {
 
          stage('Build image') {
                 steps {
-                           sh 'docker build -t sihamlogwire/testing:$BUILD_NUMBER'
+                           sh 'docker build -t sihamlogwire/testing:$BUILD_NUMBER .'
                          }
                  }
 
