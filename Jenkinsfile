@@ -1,6 +1,6 @@
 pipeline {
 	agent any 
-	def name_c = ${BUILD_NUMBER} - 1
+	def name_c = ${BUILD_NUMBER}-1
    	stages {
         	stage('Clone') {
 			steps {
