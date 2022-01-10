@@ -31,13 +31,28 @@ pipeline {
    				  archiveArtifacts 'target/*.war'
    			 }              
 		 }
-	
-	stage('ansible') {
-               steps {
 
-                        sh 'ansible-playbook playbook.yml'
+         stage('Build image') {
+                steps {
+                           sh 'docker build -t sihamlogwire/testing:$BUILD_NUMBER'
+                         }
                  }
 
-	}
+
+         stage('testing image') {
+                steps {
+                           sh 'docker run -d --name testing_conteneur -p 8081:8080 sihamlogwire/testing:$BUILD_NUMBER'
+                         }
+                 }
+
+
+	
+//	stage('ansible') {
+ //              steps {
+//
+//                        sh 'ansible-playbook playbook.yml'
+//                 }
+
+//	}
    }
 }
