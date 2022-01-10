@@ -41,7 +41,7 @@ pipeline {
 
          stage('testing image') {
                 steps {
-                           sh 'docker run -d --name testing_conteneur -p 8081:8080 sihamlogwire/testing:$BUILD_NUMBER'
+                           sh 'docker run -d --name testing_conteneur -p 8086:8080 sihamlogwire/testing:$BUILD_NUMBER'
                          }
                  }
 
